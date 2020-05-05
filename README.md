@@ -117,9 +117,9 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 ```
 
-## Install MinIO
+## Install Image Registry
 ```bash
-
+helm install stable/docker-registry
 ```
 
 [here]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
