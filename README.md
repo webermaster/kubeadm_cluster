@@ -92,6 +92,9 @@ sudo su -
 #output by `kubeadm init` above
 kubeadm join --token <token> <control-plane-host>:<control-plane-port> --discovery-token-ca-cert-hash sha256:<hash>
 ```
+
+To add more worker nodes after token expiration, follow these [instructions].
+
 ## Kubectl From Client Machines
 
 Install `kubectl` according to your [platform]
@@ -108,4 +111,5 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/down
 
 [here]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 [requirements]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#verify-the-mac-address-and-product-uuid-are-unique-for-every-node
+[instructions]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#join-nodes
 [platform]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
