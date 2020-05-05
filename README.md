@@ -92,8 +92,7 @@ sudo su -
 #output by `kubeadm init` above
 kubeadm join --token <token> <control-plane-host>:<control-plane-port> --discovery-token-ca-cert-hash sha256:<hash>
 ```
-
-## Kubectl from client machines
+## Kubectl From Client Machines
 
 Install `kubectl` according to your [platform]
 
