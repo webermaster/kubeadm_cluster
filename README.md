@@ -102,7 +102,7 @@ scp root@<control-plane-host>:/etc/kubernetes/admin.conf ~/.kube/config
 kubectl get nodes
 ```
 
-##Install Metrics Server
+## Install Metrics Server
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 
 [here]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
