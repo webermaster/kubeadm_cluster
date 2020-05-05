@@ -104,12 +104,26 @@ scp root@<control-plane-host>:/etc/kubernetes/admin.conf ~/.kube/config
 kubectl get nodes
 ```
 
+## Install Helm on Client Machine
+
+Install [helm] binary. Then:
+
+```bash
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+```
+
 ## Install Metrics Server
 ```bash
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
+```
+
+## Install MinIO
+```bash
+
 ```
 
 [here]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 [requirements]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#verify-the-mac-address-and-product-uuid-are-unique-for-every-node
 [instructions]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#join-nodes
 [platform]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[helm]: https://helm.sh/docs/intro/install/
