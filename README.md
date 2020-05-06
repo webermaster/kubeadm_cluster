@@ -5,7 +5,7 @@ This is an abbreviation of the guide documented [here].
 The tool kubeadm and kubernetes in general have specific
 networking [requirements].
 
-## On Every Machine
+## On Every Machine (as root)
 ```bash
 #update stuff
 apt-get -y update && apt-get -y upgrade
@@ -49,6 +49,9 @@ mkdir -p /etc/systemd/system/docker.service.d
 systemctl daemon-reload
 systemctl restart docker
 
+#IPv4 forwarding
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
 #let IP tables see bridged traffic
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -73,15 +76,25 @@ The `kubeadm init` command below will output a command that can be used to join
 worker nodes to the cluster.  Save it for later use. Please note that tokens,
 and thus the join command, will expire after 24 hours
 
+### As root user
 ```bash
 #initialize
 kubeadm init --pod-network-cidr=192.168.0.0/16
-
+```
+then: 
+```bash
 #setup kubectl config
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+```
+Or as root user 
+```bash
+## OR AS ROOT ##
+# export KUBECONFIG=/etc/kubernetes/admin.conf
+```
+then:
+```bash
 #install pod network
 kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 ```
