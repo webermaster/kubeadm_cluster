@@ -90,8 +90,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 Or as root user 
 ```bash
-## OR AS ROOT ##
-# export KUBECONFIG=/etc/kubernetes/admin.conf
+export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
 then:
 ```bash
