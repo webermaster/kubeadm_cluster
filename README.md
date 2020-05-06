@@ -8,7 +8,7 @@ networking [requirements].
 ## On Every Machine
 ```bash
 #update stuff
-apt-get update && apt-get upgrade
+apt-get -y update && apt-get -y upgrade
 
 # Install Docker CE
 ## Set up the repository:
