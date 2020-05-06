@@ -74,12 +74,13 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 The `kubeadm init` command below will output a command that can be used to join
 worker nodes to the cluster.  Save it for later use. Please note that tokens,
-and thus the join command, will expire after 24 hours
+and thus the join command, will expire after 24 hours. Note, the master control
+plane needs a public IP for certificate generation and 
 
 ### As root user
 ```bash
 #initialize
-kubeadm init --pod-network-cidr=192.168.0.0/16
+kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint=<control plane public IP>
 ```
 then: 
 ```bash
