@@ -49,9 +49,6 @@ mkdir -p /etc/systemd/system/docker.service.d
 systemctl daemon-reload
 systemctl restart docker
 
-#IPv4 forwarding
-echo 1 > /proc/sys/net/ipv4/ip_forward
-
 #let IP tables see bridged traffic
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -68,6 +65,9 @@ EOF
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
+
+#IPv4 forwarding
+echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 
 ## On Master
