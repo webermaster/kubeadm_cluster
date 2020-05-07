@@ -132,8 +132,16 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/down
 
 ## Install Image Registry
 ```bash
-helm install stable/docker-registry
+helm upgrade register --set service.type=NodePort. --service.nodePort=<port> stable/docker-registry
 ```
+This installs an insecure registry in the cluster available at `<public-node-ip>:<port>`.
+To access the registry from your docker daemon add:
+```json
+{ 
+  "insecure-registries":["myregistry.example.com:5000"]
+}
+```
+to /etc/docker/daemon.json and execute `sudo docker service restart`.
 
 [here]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 [requirements]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#verify-the-mac-address-and-product-uuid-are-unique-for-every-node
