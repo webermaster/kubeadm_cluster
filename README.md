@@ -80,7 +80,7 @@ plane needs a public IP for certificate generation and
 ### As root user
 ```bash
 #initialize
-kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint=<control plane DNS name>
+kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint=<control plane public DNS name>
 ```
 then: 
 ```bash
