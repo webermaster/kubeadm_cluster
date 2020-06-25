@@ -141,7 +141,7 @@ To access the registry from your docker daemon add:
   "insecure-registries":["myregistry.example.com:5000"]
 }
 ```
-to /etc/docker/daemon.json and execute `sudo docker service restart`.
+to /etc/docker/daemon.json and execute `sudo service docker restart`.
 
 [here]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 [requirements]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#verify-the-mac-address-and-product-uuid-are-unique-for-every-node
